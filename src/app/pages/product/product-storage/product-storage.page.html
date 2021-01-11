@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="返回" defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="xiayi">修改库存</ion-title>
+    <ion-buttons slot="end" class="xiayi">
+      <ion-button>出入库记录</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" color="primary" (click)="onRuku()">入库</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" fill="outline" (click)="onChuku()">出库</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-slides #signupSlides   class="slides-style" >
+    <ion-slide  >
+      <ion-grid class="juzhong">
+        <ion-row>
+        <ion-list>
+          <ion-item>
+            <ion-label position="fixed">入库数量</ion-label>
+            <ion-input name="numru" slot="end" type="number" [(ngModel)]="num_ru" #numru="ngModel"   ></ion-input>
+          </ion-item>
+          <!-- <ion-text   color="danger" *ngIf="price.invalid && price.touched">
+              <p class="dangertext" [hidden]="!price.errors?.required" >请输入商品售价</p>
+            </ion-text> -->
+          <ion-item>
+            <ion-label position="fixed">备注</ion-label>
+            <ion-input slot="end" name="beizhu"></ion-input>
+          </ion-item>
+        </ion-list>
+        </ion-row>
+        <ion-row>
+          <ion-label class="kuchun">
+            当前库存：{{p.inventory}}
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="onQueRenRuku()">确认入库</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+
+      <ion-grid>
+        <ion-row>
+          <ion-list>
+            <ion-item>
+              <ion-label position="fixed">出库数量</ion-label>
+              <ion-input name="numchu" slot="end" type="number" #numchu="ngModel" [(ngModel)]="num_chu" ></ion-input>
+            </ion-item>
+            <!-- <ion-text   color="danger" *ngIf="price.invalid && price.touched">
+                <p class="dangertext" [hidden]="!price.errors?.required" >请输入商品售价</p>
+              </ion-text> -->
+            <ion-item>
+              <ion-label position="fixed">备注</ion-label>
+              <ion-input slot="end" name="beizhu"></ion-input>
+            </ion-item>
+      
+          </ion-list>
+        </ion-row>
+        <ion-row >
+          <ion-label class="kuchun">
+            当前库存：{{p.inventory}}
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="onQueRenChuKu()" >确认出库</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

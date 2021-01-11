@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="xiayi">
+      修改分类名称
+    </ion-title>
+    <ion-buttons class="xiayi" slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-text >取消</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <form (ngSubmit)="onSave()"  >
+    <ion-list>
+      <ion-item >
+        <ion-input name="newName" #newName="ngModel" [(ngModel)]="name" type="text" required> </ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding-horizontal">
+      <ion-button color="primary" type="submit" expand="full" [disabled]="newName.invalid">
+        保存
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

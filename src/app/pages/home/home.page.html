@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      首页
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #imgSlides>
+    <ion-slide>
+      <img src="assets/img/androidbanner.png" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/img/androidbanner.png" alt="">
+    </ion-slide>
+  </ion-slides>
+  <ion-grid>
+    <ion-row style="background: rgb(240, 239, 239);">
+      <ion-col *ngFor="let s of sales">
+        <div class="grid-item">
+          <h6 style="font-size: 20px;color:rgb(112, 111, 111);">{{s.title}}</h6>
+          <h4 style="font-size: 18px;"><span>{{s.current | number:'1.2-2'}}元</span></h4>
+          <p style="font-size: 8px;">
+            {{s.content}}
+            <span [ngClass]="{'less-equal': s.current - s.previous <= 0,'greater': s.current - s.previous > 0}">
+              {{s.current - s.previous | number:'1.2-2'}}
+            </span>&nbsp;
+            <ng-container [ngSwitch]="minus(s.current, s.previous)">
+              <ion-icon name="arrow-up" color="danger" *ngSwitchCase="1"></ion-icon>
+              <ion-icon name="arrow-forward" color="success" *ngSwitchCase="0"></ion-icon>
+              <ion-icon name="arrow-down" color="success" *ngSwitchCase="-1"></ion-icon>
+            </ng-container>
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="grid">
+      <ion-col size="3" *ngFor="let f of funcs">
+        <div class="grid-item">
+          <a href={{f.href}}> <img src={{f.url}}></a>
+          <div>{{f.title}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回" defaultHref="/tabs/me"></ion-back-button>
+    </ion-buttons>
+    <ion-title>设置</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium" class="ion-no-padding">
+  <ion-list inset="true">
+    <ion-item detail href="/me/shop">
+      <ion-label>店铺设置</ion-label>
+    </ion-item>
+    <ion-item detail href="/me/change-password">
+      <ion-label>密码</ion-label>
+    </ion-item>
+
+  </ion-list>
+  <ion-list inset="true">
+    <ion-item detail href="me/about-us">
+      <ion-label>关于我们</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>联系客服</ion-label>
+      <ion-note slot="end"><a href="tel:18965375150">拨打电话18965375150</a></ion-note>
+    </ion-item>
+    <ion-item detail href="">
+      <ion-label>版本号</ion-label>
+      <ion-note>107</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list inset="true">
+    <ion-item detail>
+      <ion-label (click)="logOut()">安全退出</ion-label>
+    </ion-item>
+  </ion-list>
+  
+  <yxy-copyright [bottom]="'20px'"></yxy-copyright>
+</ion-content>

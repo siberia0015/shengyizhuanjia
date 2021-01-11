@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回" defaultHref="/tabs/me"></ion-back-button>
+    </ion-buttons>
+    <ion-title>店铺信息</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium" class="ion-no-padding">
+  <ion-list inset="true">
+    <ion-item routerLink="/me/shop/edit" [queryParams]="{title:'店铺名称',property:'shopName'}">
+      <ion-label>店铺名称</ion-label>
+      <ion-note item-end>{{ user.shopName }}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/me/shop/edit" [queryParams]="{title:'店铺简称',property:'shopAbbr'}">
+      <ion-label>店铺简称</ion-label>
+      <ion-note item-end>{{ user.shopAbbr }}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>注册时间</ion-label>
+      <ion-note slot="end">`{{user.createTime | date: "yyyy-MM-dd HH:mm:ss"}}`</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>手机号码</ion-label>
+      <ion-note slot="end">{{ user.phone }}</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list inset="true">
+    <ion-item routerLink="/me/shop/edit">
+      <ion-label>电子邮件</ion-label>
+      <ion-note slot="end">{{ user.email }}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/me/shop/edit" [queryParams]="{title:'店主姓名',property:'ownerName'}">
+      <ion-label>店主姓名</ion-label>
+      <ion-note slot="end">{{ user.ownerName }}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/me/shop/edit" [queryParams]="{title:'店铺电话',property:'shopTel'}">
+      <ion-label>店铺电话</ion-label>
+      <ion-note slot="end">{{ user.shopTel }}</ion-note>
+    </ion-item>
+    <ion-item routerLink="/me/shop/edit" [queryParams]="{title:'行业类型',property:'?'}">
+      <ion-label>行业类型</ion-label>
+    </ion-item>
+  </ion-list>
+  
+  <yxy-copyright [bottom]="'20px'"></yxy-copyright>
+</ion-content>

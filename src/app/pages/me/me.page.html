@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="dark" fill="clear" href="/me/setting">
+        <ion-icon name='settings'></ion-icon>设置
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item color="medium">
+      <ion-label>
+        <ion-text>
+          <h2>{{ LoginLog.shopName }}</h2>
+        </ion-text>
+        <p>{{ LoginLog.phone }}</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">高级版</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+      <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+        <ion-icon slot="start" [name]="p.icon"></ion-icon>
+        <ion-label>
+          {{p.title}}
+        </ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-list>
+  <yxy-copyright [bottom]="'20px'"></yxy-copyright>
+</ion-content>
+

@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons class="xiayi" slot="start">
+      <ion-button color="" routerLink="/product/list"  >
+        <ion-icon size="7"  name="arrow-back"></ion-icon>返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="xiayi">编辑分类</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-margin-top">
+    <ion-list-header>
+      <ion-label>大分类</ion-label>
+    </ion-list-header>
+    <ion-item-sliding #BigitemSliding >
+      <ion-item>
+        <ion-label>{{category.name}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end" >
+        <ion-item-option color="primary" (click)="onEditCategoryName(BigitemSliding)" >
+          <ion-icon name="create"></ion-icon>编辑
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="onDelete(BigitemSliding,category.id)" >
+          <ion-icon name="trash"></ion-icon>删除
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-list-header>
+      <ion-label >小分类</ion-label>
+    </ion-list-header>
+    <ion-item-sliding #SmallitemSliding   *ngFor="let small of category.children;">
+      <ion-item>
+        <ion-label>{{small.name}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="onEditSubCategoryName(SmallitemSliding,small )">
+          <ion-icon name="create"></ion-icon>编辑
+        </ion-item-option>
+        <ion-item-option color="danger"  (click)="onDelete(SmallitemSliding,small.id)" >
+          <ion-icon name="trash"></ion-icon>删除
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回" defaultHref="/me/shop"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <div class="ion-padding-horizontal">
+    <form #shopInfoForm="ngForm">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-input name="value" type="string" placeholder="{{ title }}" [(ngModel)]="value">
+          </ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding-horizontal">
+        <ion-button type="submit" expand="full" color="primary" (click)="onSave()">确定</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
